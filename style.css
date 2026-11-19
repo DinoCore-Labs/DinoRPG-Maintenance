@@ -1,0 +1,268 @@
+:root {
+  --maintenance-brown: #8f4f2e;
+  --maintenance-gold: #ffee92;
+  --maintenance-text: #fce3bc;
+  --maintenance-shadow: #3b2115;
+  --footer-cream: #fffcf4;
+  --footer-border: #bd7e49;
+  --footer-ink: #701000;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  min-width: 280px;
+}
+body {
+  margin: 0;
+  color: #52646b;
+  background: #fff;
+  font:
+    16px/1.45 "Trebuchet MS",
+    Arial,
+    sans-serif;
+}
+.topbar {
+  min-height: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 12px;
+  background: #111317;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.22);
+  position: relative;
+  z-index: 5;
+  font-family: Arial, sans-serif;
+}
+.topbar-label {
+  color: #b7b9c6;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.locale-nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.locale-nav a {
+  display: inline-block;
+  color: #b7b9c6;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 3px 7px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+.locale-nav a[aria-current="page"] {
+  color: #fff1b3;
+  border-color: #876c40;
+}
+.locale-nav a:hover {
+  color: white;
+  background: #292c32;
+}
+a:focus-visible {
+  outline: 2px solid #ffee92;
+  outline-offset: 2px;
+}
+.homepage {
+  position: relative;
+  width: 100%;
+  padding-bottom: 90px;
+  overflow: hidden;
+  background: #fff;
+}
+.homepage-container {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+}
+.homepage-banner {
+  /* Identique à getImgURL('background','background_beta') dans HomePage.vue */
+  width: 100%;
+  aspect-ratio: 1920 / 1152;
+  background-image: url("assets/background_beta.webp");
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    center top,
+    center top;
+  background-size:
+    100% auto,
+    100% auto;
+}
+.maintenance-section {
+  position: relative;
+  z-index: 2;
+  margin: clamp(-280px, -18vw, -70px) auto 0;
+  padding: 0 16px;
+  max-width: 592px;
+  text-align: center;
+}
+.maintenance-card {
+  max-width: 560px;
+  padding: 24px;
+  text-align: center;
+  color: var(--maintenance-text);
+  background: var(--maintenance-brown);
+  border: 2px solid var(--maintenance-gold);
+  border-radius: 8px;
+  box-shadow: 0 4px 0 var(--maintenance-shadow);
+}
+.maintenance-card h1 {
+  margin: 0 0 16px;
+  color: var(--maintenance-gold);
+  font-size: 24px;
+  line-height: 1.2;
+}
+.maintenance-card p {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.supporting-text {
+  font-size: 14px;
+  color: #8f4f2e;
+  text-align: center;
+  margin: 22px 0 0;
+}
+.game-footer {
+  margin-top: auto;
+  padding: 85px 16px 35px;
+  text-align: center;
+  background-image: url("assets/sky_footer.webp");
+  background-repeat: repeat-x, repeat-x;
+  background-position:
+    bottom center,
+    bottom center;
+}
+.footer-card {
+  position: relative;
+  width: min(100%, 400px);
+  margin: 0 auto;
+  padding: 42px 22px 22px;
+  background: var(--footer-cream);
+  border-radius: 4px;
+  border: 1px solid var(--footer-border);
+  border-bottom-width: 4px;
+  color: var(--footer-ink);
+}
+.footer-card p {
+  margin: 0 0 7px;
+  font-size: 13px;
+}
+.footer-card small {
+  font-size: 11px;
+  color: #a06b4d;
+}
+.footer-dinoz {
+  position: absolute;
+  width: 75px;
+  height: 67px;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -60%);
+  background-image: url("assets/4dinoz.webp");
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+}
+@media (max-width: 700px) {
+  /* Sur mobile on conserve une taille lisible pour le logo sur l'image d'origine. */
+  .homepage-banner {
+    width: 180%;
+    margin-left: -40%;
+  }
+  .maintenance-section {
+    margin-top: -76px;
+  }
+  .homepage {
+    padding-bottom: 76px;
+  }
+  .maintenance-card {
+    padding: 22px 18px;
+  }
+  .maintenance-card h1 {
+    font-size: 22px;
+  }
+  .maintenance-card p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .topbar {
+    padding: 5px 6px;
+    gap: 3px;
+  }
+  .topbar-label {
+    font-size: 10px;
+  }
+  .locale-nav {
+    gap: 0;
+  }
+  .locale-nav a {
+    font-size: 10px;
+    padding: 3px 4px;
+  }
+  .maintenance-section {
+    margin-top: -56px;
+    padding: 0 12px;
+  }
+}
+
+/* Attribution visible et page de crédits (respect de l'identité DinoRPG). */
+.footer-card small {
+  display: block;
+  line-height: 1.65;
+}
+.footer-card a,
+.credits-panel a {
+  color: #a74110;
+  text-underline-offset: 2px;
+}
+.footer-card a:hover,
+.credits-panel a:hover {
+  color: #682a0f;
+}
+.credits-page {
+  min-height: calc(100vh - 44px);
+  padding: clamp(28px, 7vw, 80px) 16px;
+  background: #fff url("assets/sky_footer.webp") repeat-x bottom center;
+}
+.credits-panel {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid #bd7e49;
+  border-bottom-width: 4px;
+  border-radius: 6px;
+  background: #fffcf4;
+  color: #701000;
+  box-shadow: 0 4px 14px #5b351f22;
+}
+.credits-panel h1 {
+  font-size: clamp(21px, 3vw, 28px);
+  color: #8f4f2e;
+  margin-top: 0;
+}
+.credits-panel h1 span {
+  font-size: 0.65em;
+  font-weight: normal;
+}
+.credits-panel p {
+  line-height: 1.65;
+}
+.credits-panel hr {
+  border: 0;
+  border-top: 1px solid #bd7e49;
+  margin: 24px 0;
+}
+.credits-links {
+  font-size: 13px;
+}
